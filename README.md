@@ -11,9 +11,8 @@ This repository contains the documentation of the tutorial on "Digital Design on
 - [Interfacing LED lab](#interfacing-led-lab)
 - [Seven Segment Display](#seven-segment-display)
 - [4-way Traffic Light Controller](#4-way-traffic-light-controller)
-- [References](#references)
-- [Author](#author)
 - [Acknowledgement](#acknowledgement)
+- [References](#references)
 
 
   
