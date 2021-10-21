@@ -5,9 +5,10 @@
 This repository contains the documentation of the tutorial on "Digital Design on FPGA", an online workshop conducted by VLSI System Design (VSD)
 
 ## Table of Contents
-- [`Introduction`](#introduction)
+- [Introduction](#introduction)
 - [Interfacing LEDs](#interfacing-leds)
 - [LED Counter](#led-counter)
+- [Interfacing LED lab](#interfacing-led-lab)
 - [Seven Segment Display](#Seven-Segment-Display)
 - [4-way Traffic Light Controller](#4-way-Traffic-Light-Controller)
 - [References](#references)
@@ -32,14 +33,14 @@ This repository contains the documentation of the tutorial on "Digital Design on
   For more information, visit: https://www.makerchip.com/
 
 # Interfacing LEDs
-  In this section, we deal with interfacing of LEDs by simulating them on the virtual FPGA board by using System Verilog.
+  In this section, we deal with simulation of how LEDs work by assigning random values using System Verilog.
   
   Refer to the link for the project:
   https://makerchip.com/sandbox/0VOflhxZZ/0Anh1Zw#
 ### a. Code
 ```
-\m4_TLV_version 1d: tl-x.org
-\SV
+	\m4_TLV_version 1d: tl-x.org
+	\SV
 	m4_include_lib(['https://raw.githubusercontent.com/BalaDhinesh/Virtual-FPGA-Lab/main/tlv_lib/fpga_includes.tlv'])
    m4_makerchip_module   // (Expanded in Nav-TLV pane.)
 	//Author- SUNEESH HARAN
@@ -50,7 +51,7 @@ This repository contains the documentation of the tutorial on "Digital Design on
 		                   
    // write your code here
    
-\TLV
+	\TLV
    // M4_BOARD numbering
    // 1 - Zedboard
    // 2 - Artix-7
@@ -60,9 +61,9 @@ This repository contains the documentation of the tutorial on "Digital Design on
    m4_define(M4_BOARD, 1)
    m4+fpga_init()
    m4+fpga_led(*leds)
-\SV
+	\SV
    endmodule
-   ```
+ ```
    
 ### b. FPGA Board output
 
@@ -87,9 +88,9 @@ This repository contains the documentation of the tutorial on "Digital Design on
   Refer to the link for the project: https://makerchip.com/sandbox/0VOflhxZZ/0DRhOjK
   
   ### a. Code
-  ```
+ ```
   \m4_TLV_version 1d: tl-x.org
-\SV
+	\SV
 	m4_include_lib(['https://raw.githubusercontent.com/BalaDhinesh/Virtual-FPGA-Lab/main/tlv_lib/fpga_includes.tlv'])
    m4_makerchip_module   // (Expanded in Nav-TLV pane.)
    reg [7:0] led;
@@ -98,27 +99,67 @@ This repository contains the documentation of the tutorial on "Digital Design on
       else led <= led +1 ;
    end
                    
-\TLV
+	\TLV
    m4_define(M4_BOARD, 1)  
    m4+fpga_init()
    m4+fpga_led(*led)
-\SV
+	\SV
    endmodule
-   ```
+ ```
   ### b. FPGA Board output
   
   ![ezgif com-gif-maker](https://user-images.githubusercontent.com/72123647/138243601-d4a5accf-8240-465c-b465-ba96be9e956d.gif)
+  
+  ### c. Diagram
+  
+  ![diagram](https://user-images.githubusercontent.com/72123647/138255356-d1d80b0e-35a9-4530-8664-25bc2a2dd523.PNG)
 
-  ### c. Waveform
+  ### d. Waveform
   
   ![waveform](https://user-images.githubusercontent.com/72123647/138244115-69cccf78-d4df-405b-a4b6-437563f2ac1f.PNG)
 
-#  
+#  Interfacing LED Lab
+
+In this section, we try to see how shift operation works by using **>>** (for right shift) and **<<** (for left shift) using System Verilog.
+Refer to the link for the project: https://makerchip.com/sandbox/0VOflhxZZ/0LghYNY#
+	
+### a. Code
+```
+	\m4_TLV_version 1d: tl-x.org
+	\SV
+	m4_include_lib(['https://raw.githubusercontent.com/BalaDhinesh/Virtual-FPGA-Lab/main/tlv_lib/fpga_includes.tlv'])
+   m4_makerchip_module   // (Expanded in Nav-TLV pane.)
+   // AUTHOR- SUNEESH HARAN
+   wire [7:0] led;
+	wire [7:0] led1;
+	assign led= 8'b11111111;
+	assign led1= led>>1;
+	//assign led1= led>>4;                   
+                     
+	\TLV
+   m4_define(M4_BOARD, 1)  
+   m4+fpga_init()
+   m4+fpga_led(*led1)
+	\SV
+   endmodule
+ ```
+
+### b. FPGA Board Output
+
+![snap1](https://user-images.githubusercontent.com/72123647/138331740-0d9318ec-f9e7-4fa3-a85d-64c6657a2310.png)
+
+![snap2](https://user-images.githubusercontent.com/72123647/138331747-78d6021d-e628-4bbd-9d30-7344cb7ae293.PNG)
+
+
+
+# Seven Segment Display
+
+![snap1](https://user-images.githubusercontent.com/72123647/138332423-37914465-10ab-4eb2-ab95-901c00b006f4.PNG)
+
 
 ## Acknowledgment
   
-  I would like to thank Mr.Kunal Ghosh, Mrs. Anagha Ghosh, Mr. Steve Hoover and Mr. Bala Dinesh for the tutorial . It helped me to learn more about the FPGA and Makerchip in a very easy and structured manner. It will be very helpful for students to work on Virtual FPGA as many cannot afford the real one. It is also useful for the simulation purpose.
-
+  I would like to thank Mr.Kunal Ghosh, Mrs. Anagha Ghosh, Mr. Steve Hoover and Mr. Bala Dinesh for the tutorial . One can learn more about FPGAs and its implementation in real life scenarios. Since actual FPGA boards are expensive and cannot be afforded by everyone, the Makerchip platform plays a vital role where it provides a platform to run the codes on virtual FPGA boards.
 
 ## References
 1. https://github.com/BalaDhinesh/Digital-Design-on-FPGA--VSDOpen21
