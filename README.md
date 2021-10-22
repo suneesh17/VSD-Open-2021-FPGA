@@ -468,7 +468,7 @@ Refer to the following link for project: https://makerchip.com/sandbox/0VOflhxZZ
 ![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/72123647/138369230-5db10e34-a930-4e64-a312-2bf0f3726fcf.gif)
 
 
-## Acknowledgment
+## Acknowledgement
   
   I would like to thank Mr.Kunal Ghosh, Mrs. Anagha Ghosh, Mr. Steve Hoover and Mr. Bala Dinesh for the tutorial . One can learn more about FPGAs and its implementation in real life scenarios. Since actual FPGA boards are expensive and cannot be afforded by everyone, the Makerchip platform plays a vital role where it provides a platform to run the codes on virtual FPGA boards.
 
